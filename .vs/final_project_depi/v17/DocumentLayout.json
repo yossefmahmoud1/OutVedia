@@ -1,0 +1,242 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Outvedia\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|d:\\outvedia\\final_project_depi\\views\\users\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|solutionrelative:final_project_depi\\views\\users\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|d:\\outvedia\\final_project_depi\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|solutionrelative:final_project_depi\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|d:\\outvedia\\final_project_depi\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|solutionrelative:final_project_depi\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|d:\\outvedia\\final_project_depi\\views\\products\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|solutionrelative:final_project_depi\\views\\products\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|d:\\outvedia\\final_project_depi\\views\\products\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|solutionrelative:final_project_depi\\views\\products\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|d:\\outvedia\\final_project_depi\\views\\store\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|solutionrelative:final_project_depi\\views\\store\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|d:\\outvedia\\final_project_depi\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|solutionrelative:final_project_depi\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|d:\\outvedia\\final_project_depi\\controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|solutionrelative:final_project_depi\\controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|d:\\outvedia\\final_project_depi\\views\\checkout\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|solutionrelative:final_project_depi\\views\\checkout\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|d:\\outvedia\\final_project_depi\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|solutionrelative:final_project_depi\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|d:\\outvedia\\final_project_depi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|solutionrelative:final_project_depi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|d:\\outvedia\\final_project_depi\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|solutionrelative:final_project_depi\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|d:\\outvedia\\final_project_depi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9067250C-9662-4CFF-9F14-82A9B132BD0B}|final_project_depi\\final_project_depi.csproj|solutionrelative:final_project_depi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\Outvedia\\final_project_depi\\Views\\Users\\Details.cshtml",
+              "RelativeDocumentMoniker": "final_project_depi\\Views\\Users\\Details.cshtml",
+              "ToolTip": "D:\\Outvedia\\final_project_depi\\Views\\Users\\Details.cshtml",
+              "RelativeToolTip": "final_project_depi\\Views\\Users\\Details.cshtml",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAowKQAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-04T18:50:52.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": ".gitignore",
+              "DocumentMoniker": "D:\\Outvedia\\final_project_depi\\.gitignore",
+              "RelativeDocumentMoniker": "final_project_depi\\.gitignore",
+              "ToolTip": "D:\\Outvedia\\final_project_depi\\.gitignore",
+              "RelativeToolTip": "final_project_depi\\.gitignore",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001407|",
+              "WhenOpened": "2025-07-04T15:51:30.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Outvedia\\final_project_depi\\Views\\Products\\Index.cshtml",
+              "RelativeDocumentMoniker": "final_project_depi\\Views\\Products\\Index.cshtml",
+              "ToolTip": "D:\\Outvedia\\final_project_depi\\Views\\Products\\Index.cshtml",
+              "RelativeToolTip": "final_project_depi\\Views\\Products\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-20T20:13:51.33Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Outvedia\\final_project_depi\\Views\\Store\\Index.cshtml",
+              "RelativeDocumentMoniker": "final_project_depi\\Views\\Store\\Index.cshtml",
+              "ToolTip": "D:\\Outvedia\\final_project_depi\\Views\\Store\\Index.cshtml",
+              "RelativeToolTip": "final_project_depi\\Views\\Store\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-20T19:36:15.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "D:\\Outvedia\\final_project_depi\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "final_project_depi\\Controllers\\ProductsController.cs",
+              "ToolTip": "D:\\Outvedia\\final_project_depi\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "final_project_depi\\Controllers\\ProductsController.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAYwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T19:29:30.214Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\Outvedia\\final_project_depi\\Views\\Products\\Create.cshtml",
+              "RelativeDocumentMoniker": "final_project_depi\\Views\\Products\\Create.cshtml",
+              "ToolTip": "D:\\Outvedia\\final_project_depi\\Views\\Products\\Create.cshtml",
+              "RelativeToolTip": "final_project_depi\\Views\\Products\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-20T19:17:45.917Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\Outvedia\\final_project_depi\\Views\\Products\\Edit.cshtml",
+              "RelativeDocumentMoniker": "final_project_depi\\Views\\Products\\Edit.cshtml",
+              "ToolTip": "D:\\Outvedia\\final_project_depi\\Views\\Products\\Edit.cshtml",
+              "RelativeToolTip": "final_project_depi\\Views\\Products\\Edit.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABcAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-20T19:17:43.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Outvedia\\final_project_depi\\Views\\Cart\\Index.cshtml",
+              "RelativeDocumentMoniker": "final_project_depi\\Views\\Cart\\Index.cshtml",
+              "ToolTip": "D:\\Outvedia\\final_project_depi\\Views\\Cart\\Index.cshtml",
+              "RelativeToolTip": "final_project_depi\\Views\\Cart\\Index.cshtml",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-12T18:53:24.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "D:\\Outvedia\\final_project_depi\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "final_project_depi\\Controllers\\CartController.cs",
+              "ToolTip": "D:\\Outvedia\\final_project_depi\\Controllers\\CartController.cs",
+              "RelativeToolTip": "final_project_depi\\Controllers\\CartController.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAgwEwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T18:51:14.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Outvedia\\final_project_depi\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "final_project_depi\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Outvedia\\final_project_depi\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "final_project_depi\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAIcAAAAAAAAAAAAAAJQAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-12T11:46:28.986Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Outvedia\\final_project_depi\\Views\\Checkout\\Index.cshtml",
+              "RelativeDocumentMoniker": "final_project_depi\\Views\\Checkout\\Index.cshtml",
+              "ToolTip": "D:\\Outvedia\\final_project_depi\\Views\\Checkout\\Index.cshtml",
+              "RelativeToolTip": "final_project_depi\\Views\\Checkout\\Index.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAACYAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-12T11:29:38.733Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CheckoutController.cs",
+              "DocumentMoniker": "D:\\Outvedia\\final_project_depi\\Controllers\\CheckoutController.cs",
+              "RelativeDocumentMoniker": "final_project_depi\\Controllers\\CheckoutController.cs",
+              "ToolTip": "D:\\Outvedia\\final_project_depi\\Controllers\\CheckoutController.cs",
+              "RelativeToolTip": "final_project_depi\\Controllers\\CheckoutController.cs",
+              "ViewState": "AQIAAF8AAAAAAAAAAAAIwIkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T11:12:11.716Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Outvedia\\final_project_depi\\appsettings.json",
+              "RelativeDocumentMoniker": "final_project_depi\\appsettings.json",
+              "ToolTip": "D:\\Outvedia\\final_project_depi\\appsettings.json",
+              "RelativeToolTip": "final_project_depi\\appsettings.json",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAQwBkAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-27T16:52:46.08Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

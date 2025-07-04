@@ -1,0 +1,225 @@
+﻿@model ProfileDto
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+@{
+	ViewData["Title"] = "Profile";
+	var appUser = await UserManager.GetUserAsync(User);
+	string userRole = "";
+	if (User.IsInRole("admin")) userRole = "Admin";
+	if (User.IsInRole("seller")) userRole = "Seller";
+	if (User.IsInRole("client")) userRole = "Client";
+}
+
+<div class="container py-5">
+	<div class="row justify-content-center">
+		<div class="col-lg-8">
+			<!-- Profile Header -->
+			<div class="card shadow-lg border-0 rounded-4 p-0 overflow-hidden mb-4">
+				<div class="card-header bg-primary text-white p-4">
+					<div class="d-flex align-items-center">
+						<div class="bg-white rounded-circle d-flex align-items-center justify-content-center me-4" style="width: 80px; height: 80px;">
+							<i class="bi bi-person-fill text-primary fs-1"></i>
+						</div>
+						<div>
+							<h2 class="fw-bold mb-1">@(appUser?.FirstName + " " + appUser?.LastName)</h2>
+							<div class="d-flex align-items-center">
+								<span class="badge bg-light text-primary me-2">@userRole</span>
+								<span class="small">Member since @appUser?.CreatedAt.ToString("MMM yyyy")</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Alerts -->
+			@if (ViewBag.ErrorMessage != null)
+			{
+				<div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+					<i class="bi bi-exclamation-triangle me-2"></i>
+					<strong>@ViewBag.ErrorMessage</strong>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			}
+			else if (ViewBag.SuccessMessage != null)
+			{
+				<div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+					<i class="bi bi-check-circle me-2"></i>
+					<strong>@ViewBag.SuccessMessage</strong>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			}
+
+			<!-- Profile Information -->
+			<div class="card shadow-sm border-0 rounded-4">
+				<div class="card-header bg-white border-bottom p-4">
+					<h4 class="fw-bold mb-0"><i class="bi bi-person-circle me-2 text-primary"></i>Profile Information</h4>
+				</div>
+				<div class="card-body p-4">
+					<div class="row g-4">
+						<div class="col-md-6">
+							<div class="profile-info-item">
+								<div class="d-flex align-items-center mb-3">
+									<i class="bi bi-person text-primary me-3 fs-5"></i>
+									<div>
+										<div class="text-muted small">First Name</div>
+										<div class="fw-semibold">@appUser?.FirstName</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="profile-info-item">
+								<div class="d-flex align-items-center mb-3">
+									<i class="bi bi-person text-primary me-3 fs-5"></i>
+									<div>
+										<div class="text-muted small">Last Name</div>
+										<div class="fw-semibold">@appUser?.LastName</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="profile-info-item">
+								<div class="d-flex align-items-center mb-3">
+									<i class="bi bi-envelope text-primary me-3 fs-5"></i>
+									<div>
+										<div class="text-muted small">Email</div>
+										<div class="fw-semibold">@appUser?.Email</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="profile-info-item">
+								<div class="d-flex align-items-center mb-3">
+									<i class="bi bi-telephone text-primary me-3 fs-5"></i>
+									<div>
+										<div class="text-muted small">Phone</div>
+										<div class="fw-semibold">@appUser?.PhoneNumber</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="profile-info-item">
+								<div class="d-flex align-items-start mb-3">
+									<i class="bi bi-geo-alt text-primary me-3 fs-5 mt-1"></i>
+									<div>
+										<div class="text-muted small">Address</div>
+										<div class="fw-semibold">@appUser?.Address</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="profile-info-item">
+								<div class="d-flex align-items-center mb-3">
+									<i class="bi bi-shield-check text-primary me-3 fs-5"></i>
+									<div>
+										<div class="text-muted small">Role</div>
+										<div class="fw-semibold">@userRole</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="profile-info-item">
+								<div class="d-flex align-items-center mb-3">
+									<i class="bi bi-calendar text-primary me-3 fs-5"></i>
+									<div>
+										<div class="text-muted small">Member Since</div>
+										<div class="fw-semibold">@appUser?.CreatedAt.ToString("MMM dd, yyyy")</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Action Buttons -->
+					<div class="d-flex gap-3 mt-4 pt-4 border-top">
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditProfileModal">
+							<i class="bi bi-pencil me-2"></i>Edit Profile
+						</button>
+						<a class="btn btn-outline-primary" asp-controller="Account" asp-action="Password">
+							<i class="bi bi-key me-2"></i>Change Password
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Edit Profile Modal -->
+<div class="modal fade" id="EditProfileModal" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content border-0 shadow">
+			<div class="modal-header bg-primary text-white">
+				<h5 class="modal-title fw-bold">
+					<i class="bi bi-pencil-square me-2"></i>Edit Profile
+				</h5>
+				<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body p-4">
+				<form method="post">
+					<div class="row g-3">
+						<div class="col-md-6">
+							<label class="form-label fw-bold">
+								<i class="bi bi-person me-1"></i>First Name
+							</label>
+							<input class="form-control" asp-for="FirstName" placeholder="Enter your first name" />
+							<span asp-validation-for="FirstName" class="text-danger small"></span>
+						</div>
+						<div class="col-md-6">
+							<label class="form-label fw-bold">
+								<i class="bi bi-person me-1"></i>Last Name
+							</label>
+							<input class="form-control" asp-for="LastName" placeholder="Enter your last name" />
+							<span asp-validation-for="LastName" class="text-danger small"></span>
+						</div>
+						<div class="col-md-6">
+							<label class="form-label fw-bold">
+								<i class="bi bi-envelope me-1"></i>Email
+							</label>
+							<input class="form-control" asp-for="Email" placeholder="Enter your email" />
+							<span asp-validation-for="Email" class="text-danger small"></span>
+						</div>
+						<div class="col-md-6">
+							<label class="form-label fw-bold">
+								<i class="bi bi-telephone me-1"></i>Phone Number
+							</label>
+							<input class="form-control" asp-for="PhoneNumber" placeholder="Enter your phone number" />
+							<span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+						</div>
+						<div class="col-12">
+							<label class="form-label fw-bold">
+								<i class="bi bi-geo-alt me-1"></i>Address
+							</label>
+							<input class="form-control" asp-for="Address" placeholder="Enter your address" />
+							<span asp-validation-for="Address" class="text-danger small"></span>
+						</div>
+					</div>
+					<div class="d-flex gap-2 mt-4 pt-3 border-top">
+						<button type="submit" class="btn btn-primary">
+							<i class="bi bi-check-circle me-2"></i>Save Changes
+						</button>
+						<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+							<i class="bi bi-x-circle me-2"></i>Cancel
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+.profile-info-item {
+	padding: 1rem;
+	border-radius: 0.5rem;
+	transition: background-color 0.2s ease;
+}
+.profile-info-item:hover {
+	background-color: #f8f9fa;
+}
+</style>

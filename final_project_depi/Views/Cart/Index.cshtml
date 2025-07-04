@@ -1,0 +1,220 @@
+@model CheckoutDto
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
+<div class="container-fluid py-4">
+    <div class="row">
+        <!-- Cart Items Section -->
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white border-bottom">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-cart3 text-primary me-2 fs-4"></i>
+                        <h4 class="mb-0 text-dark">Shopping Cart</h4>
+                        @if (ViewBag.CartItems != null && ViewBag.CartItems.Count > 0)
+                        {
+                            <span class="badge bg-primary ms-2">@ViewBag.CartItems.Count items</span>
+                        }
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    @if(ViewBag.ErrorMessage != null)
+                    {
+                        <div class="alert alert-warning alert-dismissible fade show m-3" role="alert">
+                            <i class="bi bi-exclamation-triangle me-2"></i>
+                            <strong>@ViewBag.ErrorMessage</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+
+                    @if (ViewBag.CartItems != null && ViewBag.CartItems.Count > 0)
+                    {
+                        <div class="cart-items">
+                            @foreach (var item in ViewBag.CartItems)
+                            {
+                                <div class="cart-item p-3 border-bottom">
+                                    <div class="row align-items-center">
+                                        <!-- Product Image -->
+                                        <div class="col-md-2 col-sm-3 mb-3 mb-sm-0">
+                                            <img src="/products/@item.Product.ImageFileName" 
+                                                 class="img-fluid rounded shadow-sm" 
+                                                 style="max-width: 120px; height: auto;" 
+                                                 alt="@item.Product.Name">
+                                        </div>
+                                        
+                                        <!-- Product Details -->
+                                        <div class="col-md-4 col-sm-6 mb-3 mb-sm-0">
+                                            <h5 class="text-dark mb-2">@item.Product.Name</h5>
+                                            <div class="text-muted small">
+                                                <div><i class="bi bi-tag me-1"></i>Brand: @item.Product.Brand</div>
+                                                <div><i class="bi bi-grid me-1"></i>Category: @item.Product.Category</div>
+                                                <div class="text-primary fw-bold mt-1">
+                                                    <i class="bi bi-currency-dollar me-1"></i>@(item.Product.Price)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Quantity Controls -->
+                                        <div class="col-md-3 col-sm-6 mb-3 mb-sm-0">
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <button type="button" 
+                                                        class="btn btn-outline-secondary btn-sm rounded-circle"
+                                                        style="width: 35px; height: 35px;"
+                                                        onclick="decrease(@item.Product.Id)">
+                                                    <i class="bi bi-dash"></i>
+                                                </button>
+                                                <span class="mx-3 fw-bold text-dark">@item.Quantity</span>
+                                                <button type="button" 
+                                                        class="btn btn-outline-secondary btn-sm rounded-circle"
+                                                        style="width: 35px; height: 35px;"
+                                                        onclick="increase(@item.Product.Id)">
+                                                    <i class="bi bi-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Total Price -->
+                                        <div class="col-md-2 col-sm-6 mb-3 mb-sm-0">
+                                            <div class="text-end">
+                                                <div class="fw-bold text-primary fs-5">@(item.UnitPrice * item.Quantity)$</div>
+                                                <small class="text-muted">@(item.UnitPrice)$ each</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Remove Button -->
+                                        <div class="col-md-1 col-sm-6 text-end">
+                                            <button type="button" 
+                                                    class="btn btn-outline-danger btn-sm rounded-circle"
+                                                    style="width: 35px; height: 35px;"
+                                                    onclick="remove(@item.Product.Id)"
+                                                    title="Remove item">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <!-- Empty Cart State -->
+                        <div class="text-center py-5">
+                            <i class="bi bi-cart-x text-muted" style="font-size: 4rem;"></i>
+                            <h4 class="text-muted mt-3">Your cart is empty</h4>
+                            <p class="text-muted">Add some products to get started!</p>
+                            <a href="@Url.Action("Index", "Store")" class="btn btn-primary">
+                                <i class="bi bi-shop me-2"></i>Continue Shopping
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Summary Section -->
+        <div class="col-lg-4">
+            <div class="card shadow-sm border-0 sticky-top" style="top: 20px;">
+                <div class="card-header bg-primary text-white">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-receipt me-2"></i>
+                        <h5 class="mb-0">Order Summary</h5>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @using Microsoft.AspNetCore.Identity
+                    @inject SignInManager<ApplicationUser> SignInManager
+
+                    @if (!SignInManager.IsSignedIn(User))
+                    {
+                        <!-- Guest User Summary -->
+                        <div class="summary-item d-flex justify-content-between mb-3">
+                            <span class="text-muted">Subtotal:</span>
+                            <span class="fw-bold">@(ViewBag.Subtotal)$</span>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <div class="d-grid gap-2">
+                            <a class="btn btn-primary" asp-controller="Account" asp-action="Register">
+                                <i class="bi bi-person-plus me-2"></i>Register
+                            </a>
+                            <a class="btn btn-outline-primary" asp-controller="Account" asp-action="Login">
+                                <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <!-- Logged In User Summary -->
+                        <form method="post">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold text-dark">
+                                    <i class="bi bi-geo-alt me-1"></i>Delivery Address
+                                </label>
+                                <input type="text" class="form-control" asp-for="DeliveryAddress" 
+                                       placeholder="Enter your delivery address">
+                                <span asp-validation-for="DeliveryAddress" class="text-danger small"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold text-dark">
+                                    <i class="bi bi-credit-card me-1"></i>Payment Method
+                                </label>
+                                <select class="form-select" asp-for="PaymentMethod">
+                                    <option value="cash">💵 Cash on Delivery</option>
+                                    <option value="credit_card">💳 Credit Card</option>
+                                    <option value="paypal">🅿️ PayPal</option>
+                                </select>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <!-- Price Breakdown -->
+                            <div class="summary-item d-flex justify-content-between mb-2">
+                                <span class="text-muted">Subtotal:</span>
+                                <span>@(ViewBag.Subtotal)$</span>
+                            </div>
+                            <div class="summary-item d-flex justify-content-between mb-2">
+                                <span class="text-muted">Shipping:</span>
+                                <span>@(ViewBag.ShippingFee)$</span>
+                            </div>
+                            <hr class="my-3">
+                            <div class="summary-item d-flex justify-content-between mb-3">
+                                <span class="fw-bold fs-5 text-dark">Total:</span>
+                                <span class="fw-bold fs-5 text-primary">@(ViewBag.Total)$</span>
+                            </div>
+
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-lg" type="submit">
+                                    <i class="bi bi-check-circle me-2"></i>Proceed to Checkout
+                                </button>
+                            </div>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modern Cart Page Styles -->
+
+<style>
+.cart-item {
+    transition: background-color 0.2s ease;
+}
+.cart-item:hover {
+    background-color: #f8f9fa;
+}
+.summary-item {
+    font-size: 0.95rem;
+}
+@@media (max-width: 768px) {
+    .sticky-top {
+        position: relative !important;
+        top: 0 !important;
+    }
+}
+</style>

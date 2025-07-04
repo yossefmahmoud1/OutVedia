@@ -1,0 +1,94 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Home Page";
+    ViewData["Homepage"] = true;
+}
+
+<!-- Hero Section -->
+<div class="bg-primary text-white py-5 mb-0 hero-section">
+    <div class="container text-center">
+        <img src="/images/icon.jpg" alt="Outvedia Logo" width="70" class="mb-3 shadow-sm rounded-circle bg-white p-2"/>
+        <h1 class="display-4 fw-bold mb-3">Welcome to OUTVEDIA</h1>
+        <p class="lead mb-4">Discover the latest products, best deals, and exclusive offers!</p>
+        <a href="/Store" class="btn btn-light btn-lg px-4 shadow-sm">Shop Now</a>
+    </div>
+</div>
+
+<!-- Newest Products Section -->
+<div class="bg-light">
+    <div class="container py-5">
+        <h2 class="pb-4 text-center fw-bold text-primary">Newest Products</h2>
+        <div id="loadingSpinner" class="loading-spinner"></div>
+        <div class="row mb-5 g-4" id="productsContainer">
+            @foreach(var product in Model){
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                   <div class="rounded border shadow-lg p-3 text-center h-100 product-card bg-white position-relative" style="transition: box-shadow 0.2s, transform 0.2s;">
+                    <span class="badge bg-success position-absolute top-0 start-0 m-2">New</span>
+                    <img src="@(product.ImageFileName.StartsWith("http") ? product.ImageFileName : "/products/" + product.ImageFileName)" class="img-fluid mb-3" alt="Product image"
+                    style="height: 180px; object-fit:contain; border-radius: 10px; background: #f8f9fa; box-shadow: 0 2px 8px rgba(0,0,0,0.04);"/>
+                    <h5 class="py-2 fw-semibold">@product.Name</h5>
+                    <p class="mb-1 text-muted small">
+                        <span class="fw-semibold text-secondary">@product.Brand</span> &middot; <span class="fw-semibold text-secondary">@product.Category</span>
+                    </p>
+                    <h4 class="mb-3 text-primary">@(product.Price)$</h4>
+                    <a class="btn btn-outline-primary btn-sm mb-2 px-3" asp-controller="Store" 
+                    asp-action="Details"  asp-route-id="@product.Id"  role="button">Details</a>
+                    <button type="button" class="btn btn-warning btn-sm mb-2 px-3" onclick="addToCart(this, @product.Id)">
+                        Add to Cart <i class="bi bi-cart4"></i>
+                    </button>
+                   </div> 
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Show loading spinner when page is loading
+        document.addEventListener('DOMContentLoaded', function() {
+            const spinner = document.getElementById('loadingSpinner');
+            const container = document.getElementById('productsContainer');
+            
+            // Show spinner
+            spinner.style.display = 'block';
+            container.style.opacity = '0.5';
+            
+            // Hide spinner after content is loaded
+            window.addEventListener('load', function() {
+                spinner.style.display = 'none';
+                container.style.opacity = '1';
+            });
+        });
+        // Show toast on successful login or registration
+        @if (TempData["SuccessMessage"] != null) {
+        <text>
+        Swal.fire({
+            toast: true,
+            position: 'top',
+            icon: 'success',
+            title: '@TempData["SuccessMessage"]',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            customClass: {
+                popup: 'swal2-toast-center'
+            }
+        });
+        </text>
+        }
+    </script>
+    <style>
+        .hero-section {
+            background: linear-gradient(90deg, #007bff 60%, #6ec6ff 100%);
+        }
+        .product-card:hover {
+            box-shadow: 0 8px 32px rgba(0,123,255,0.15) !important;
+            transform: translateY(-6px) scale(1.03);
+        }
+        .swal2-toast.swal2-toast-center {
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+        }
+    </style>
+}

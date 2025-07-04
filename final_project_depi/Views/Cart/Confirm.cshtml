@@ -1,0 +1,78 @@
+﻿@{
+}
+
+<div class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
+    <div class="card shadow-lg border-0 rounded-4 p-4" style="max-width: 420px; width: 100%;">
+        <div class="text-center mb-3">
+            <i class="bi bi-bag-check-fill text-success" style="font-size: 3rem;"></i>
+            <h2 class="fw-bold mt-2 mb-1 text-primary">Order Confirmation</h2>
+        </div>
+        <hr />
+        @if (ViewBag.SuccessMessage != null)
+        {
+            <div id="order-success-message" data-message="@ViewBag.SuccessMessage"></div>
+            <a class="btn btn-outline-primary w-100 mt-3" asp-controller="ClientOrders" asp-action="Index">
+                <i class="bi bi-arrow-left me-2"></i>Back to Orders
+            </a>
+        }
+        else
+        {
+            <div class="row mb-3">
+                <div class="col-5 text-muted">Delivery Address</div>
+                <div class="col-7">@ViewBag.DeliveryAddress</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-5 text-muted">Payment Method</div>
+                <div class="col-7">@ViewBag.PaymentMethod</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-5 text-muted">Total Amount</div>
+                <div class="col-7 fw-bold">@(ViewBag.Total)$</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-5 text-muted">Quantity</div>
+                <div class="col-7">@(ViewBag.CartSize)</div>
+            </div>
+            <form method="post">
+                <div class="row">
+                    <div class="col-sm-6 d-grid">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-bag-check me-2"></i>Confirm
+                        </button>
+                    </div>
+                    <div class="col-sm-6 d-grid">
+                        <a class="btn btn-outline-primary" asp-controller="Cart" asp-action="Index">
+                            <i class="bi bi-arrow-left me-2"></i>Back
+                        </a>
+                    </div>
+                </div>
+            </form>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var msgDiv = document.getElementById('order-success-message');
+            if (msgDiv) {
+                var message = msgDiv.getAttribute('data-message');
+                if (message) {
+                    Swal.fire({
+                        toast: true,
+                        position: 'top',
+                        icon: 'success',
+                        title: message,
+                        showConfirmButton: false,
+                        timer: 2500,
+                        timerProgressBar: true,
+                        customClass: {
+                            popup: 'rounded-4 shadow-lg'
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+}

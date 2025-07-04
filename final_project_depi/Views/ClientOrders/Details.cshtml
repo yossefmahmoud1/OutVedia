@@ -1,0 +1,143 @@
+﻿@model Order
+@{
+    string paymentBadgeColor = "bg-danger";
+    string paymentBadgeIcon = "bi-x-circle";
+    if (Model.PaymentStatus == "pending")
+    {
+        paymentBadgeColor = "bg-warning text-dark";
+        paymentBadgeIcon = "bi-hourglass-split";
+    }
+    else if (Model.PaymentStatus == "accepted")
+    {
+        paymentBadgeColor = "bg-success";
+        paymentBadgeIcon = "bi-check-circle";
+    }
+    else if (Model.PaymentStatus == "canceled")
+    {
+        paymentBadgeColor = "bg-secondary";
+        paymentBadgeIcon = "bi-slash-circle";
+    }
+
+    string orderBadgeColor = "bg-danger";
+    string orderBadgeIcon = "bi-x-circle";
+    if (Model.OrderStatus == "created")
+    {
+        orderBadgeColor = "bg-warning text-dark";
+        orderBadgeIcon = "bi-hourglass-split";
+    }
+    else if (Model.OrderStatus == "accepted")
+    {
+        orderBadgeColor = "bg-success";
+        orderBadgeIcon = "bi-check-circle";
+    }
+    else if (Model.OrderStatus == "canceled")
+    {
+        orderBadgeColor = "bg-secondary";
+        orderBadgeIcon = "bi-slash-circle";
+    }
+    else if (Model.OrderStatus == "shipped")
+    {
+        orderBadgeColor = "bg-primary";
+        orderBadgeIcon = "bi-truck";
+    }
+    else if (Model.OrderStatus == "delivered")
+    {
+        orderBadgeColor = "bg-success";
+        orderBadgeIcon = "bi-box-seam";
+    }
+    else if (Model.OrderStatus == "returned")
+    {
+        orderBadgeColor = "bg-info text-dark";
+        orderBadgeIcon = "bi-arrow-counterclockwise";
+    }
+    else if (Model.OrderStatus == "deleted")
+    {
+        orderBadgeColor = "bg-dark";
+        orderBadgeIcon = "bi-trash";
+    }
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center mb-4">
+        <div class="col-lg-10">
+            <div class="card shadow-lg border-0 rounded-4 p-0 overflow-hidden">
+                <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between p-4">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-receipt fs-2 me-3"></i>
+                        <div>
+                            <h2 class="fw-bold mb-0">Order Details</h2>
+                            <div class="small">Order #@Model.Id</div>
+                        </div>
+                    </div>
+                    <a class="btn btn-outline-light" asp-controller="ClientOrders" asp-action="Index">
+                        <i class="bi bi-arrow-left me-2"></i>Back to Orders
+                    </a>
+                </div>
+                <div class="card-body p-4">
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-6">
+                            <div class="bg-light rounded-3 p-3 h-100">
+                                <h5 class="fw-bold mb-3"><i class="bi bi-info-circle me-2 text-primary"></i>Order Info</h5>
+                                <div class="mb-2"><span class="fw-semibold">Order Date:</span> @Model.CreatedAt.ToString("MM/dd/yyyy")</div>
+                                <div class="mb-2"><span class="fw-semibold">Delivery Address:</span> @Model.DeliveryAddress</div>
+                                <div class="mb-2"><span class="fw-semibold">Payment Method:</span> @Model.PaymentMethod</div>
+                                <div class="mb-2"><span class="fw-semibold">Payment Status:</span> <span class="badge rounded-pill @paymentBadgeColor"><i class="bi @paymentBadgeIcon me-1"></i>@Model.PaymentStatus</span></div>
+                                <div class="mb-2"><span class="fw-semibold">Order Status:</span> <span class="badge rounded-pill @orderBadgeColor"><i class="bi @orderBadgeIcon me-1"></i>@Model.OrderStatus</span></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="bg-light rounded-3 p-3 h-100">
+                                <h5 class="fw-bold mb-3"><i class="bi bi-cash-coin me-2 text-primary"></i>Summary</h5>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="fw-semibold">Subtotal:</span>
+                                    <span>@(Model.Items.Sum(i => i.UnitPrice * i.Quantity))$</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="fw-semibold">Shipping Fee:</span>
+                                    <span>@(Model.ShippingFee)$</span>
+                                </div>
+                                <div class="d-flex justify-content-between border-top pt-2 mt-2">
+                                    <span class="fw-bold">Total:</span>
+                                    <span class="fw-bold text-success">@(Model.Items.Sum(i => i.UnitPrice * i.Quantity) + Model.ShippingFee)$</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="fw-bold mb-3 mt-4"><i class="bi bi-box-seam me-2 text-primary"></i>Order Items</h5>
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th style="width: 120px">Product</th>
+                                    <th>Name &amp; Category</th>
+                                    <th style="width:100px">Units</th>
+                                    <th style="width:100px">Unit Price</th>
+                                    <th style="width:100px">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Items)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img src="@(item.Product.ImageFileName.StartsWith("http") ? item.Product.ImageFileName : "/products/" + item.Product.ImageFileName)" width="100" class="rounded-3 shadow-sm bg-white p-1" alt="@item.Product.Name" />
+                                        </td>
+                                        <td>
+                                            <div class="fw-semibold">@item.Product.Name</div>
+                                            <div class="text-muted small">@item.Product.Category</div>
+                                        </td>
+                                        <td>@item.Quantity</td>
+                                        <td>@item.UnitPrice$</td>
+                                        <td class="fw-bold">@(item.UnitPrice * item.Quantity)$</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
