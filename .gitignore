@@ -1,4 +1,23 @@
+# Ignore Visual Studio files
+.vs/
+*.user
+*.suo
+
+# Ignore build output
+bin/
+obj/
+
+# Ignore app settings with secrets
+appsettings.json
 appsettings.Development.json
-secrets.json
-.env
-final_project_depi/appsettings.json
+
+# Ignore database and system files
+*.db
+*.log
+*.vsidx
+*.cache
+*.pid
+
+# Ignore Python cache (في حالة عندك سكريبتات بايثون)
+__pycache__/
+*.pyc
